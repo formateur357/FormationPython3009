@@ -1,0 +1,32 @@
+Analyse de texte (Tuples et Dictionnaires)
+
+Écrivez un programme qui analyse un texte fourni par l'utilisateur et compte le nombre d'occurrences de chaque mot.
+
+Instructions :
+
+- Demandez à l'utilisateur d'entrer une phrase.
+
+- Convertissez la phrase en une liste de mots, en séparant les mots sur les espaces et en les mettant en minuscules.
+
+- Créez un dictionnaire qui compte le nombre d'occurrences de chaque mot.
+
+- Convertissez le dictionnaire en une liste de tuples (mot, fréquence).
+
+- Triez cette liste de tuples par ordre décroissant de fréquence.
+
+- Affichez les mots et leur fréquence d'apparition.
+
+Exemple de sortie attendue :
+
+Entrez une phrase : Le chat est sur le tapis et le chien est sous le canapé
+
+Fréquence des mots :
+le : 4
+est : 2
+chat : 1
+sur : 1
+tapis : 1
+et : 1
+chien : 1
+sous : 1
+canapé : 1
