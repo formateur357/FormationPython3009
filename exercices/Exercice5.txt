@@ -1,0 +1,30 @@
+Exercice 1 : Gestion d'une bibliothèque de livres
+
+Créez une classe Livre pour représenter des livres dans une bibliothèque.
+
+Instructions :
+
+1. Définir la classe Livre avec les attributs d'instance suivants :
+
+- titre (chaîne de caractères)
+- auteur (chaîne de caractères)
+- pages (entier)
+
+2. Définir un attribut de classe nombre_de_livres initialisé à 0 pour compter le nombre total de livres créés.
+
+3. Définir la méthode spéciale __init__ pour initialiser les attributs d'instance et incrémenter nombre_de_livres de 1 à chaque fois qu'un nouveau livre est créé.
+
+4. Définir une méthode spéciale __str__ pour afficher les informations du livre sous la forme : "Titre : {titre}, Auteur : {auteur}, Pages : {pages}".
+
+5. Définir une méthode de classe afficher_nombre_de_livres qui affiche le nombre total de livres créés.
+
+6. Créer plusieurs instances de la classe Livre et tester les méthodes.
+
+Exemple de sortie attendue :
+
+  livre1 = Livre("1984", "George Orwell", 328)
+  livre2 = Livre("Le Meilleur des mondes", "Aldous Huxley", 288)
+
+  print(livre1)
+  print(livre2)
+  Livre.afficher_nombre_de_livres()
