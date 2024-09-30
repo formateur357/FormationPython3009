@@ -1,3 +1,18 @@
+Conseils pour la résolution des exercices
+
+Générateurs :
+
+Les générateurs sont des fonctions qui utilisent le mot-clé yield pour retourner une valeur et suspendre leur état jusqu'au prochain appel.
+Ils sont utiles pour gérer des flux de données potentiellement infinis ou pour économiser de la mémoire en évitant de stocker de grandes structures de données en mémoire.
+
+Décorateurs :
+
+Un décorateur est une fonction qui prend une fonction en argument et retourne une nouvelle fonction modifiée.
+Les décorateurs peuvent être utilisés pour ajouter des fonctionnalités à des fonctions existantes sans modifier leur code source.
+Lorsque vous écrivez des décorateurs avec des paramètres (comme dans l'exercice 4), vous devez imbriquer les fonctions pour gérer les arguments.
+
+----------------------------------------------------------------------------------
+
 Exercice 1 : Générateur de nombres pairs
 
 Écrivez un générateur nommé generate_even_numbers(max_n) qui génère tous les nombres pairs de 0 jusqu'à max_n (inclus).
@@ -22,4 +37,85 @@ Exemple de sortie attendue :
   8
   10
 
-  
+----------------------------------------------------------------------------------
+
+Exercice 2 : Générateur infini de nombres Fibonacci
+
+Créez un générateur infini qui produit les nombres de la suite de Fibonacci.
+
+Instructions :
+
+1. Définir une fonction génératrice fibonacci().
+2. Utiliser une boucle infinie pour générer les nombres de Fibonacci.
+3. Permettre à l'utilisateur de récupérer un certain nombre de valeurs en utilisant next().
+
+Exemple de sortie attendue :
+  fib_gen = fibonacci()
+  for _ in range(10):
+      print(next(fib_gen))
+
+  0
+  1
+  1
+  2
+  3
+  5
+  8
+  13
+  21
+  34
+
+----------------------------------------------------------------------------------
+
+Exercice 3 : Décorateur de chronométrage
+
+Créez un décorateur nommé timer qui mesure le temps d'exécution d'une fonction et affiche ce temps après l'exécution.
+
+Instructions :
+
+1. Définir le décorateur timer.
+
+2. Utiliser le module time pour mesurer le temps avant et après l'exécution de la fonction.
+
+3. Appliquer le décorateur à une fonction compute_sum(n) qui calcule la somme des nombres de 1 à n.
+
+4. Tester la fonction avec différentes valeurs de n.
+
+Exemple de sortie attendue :
+
+  @timer
+  def compute_sum(n):
+      return sum(range(1, n+1))
+
+  compute_sum(1000000)
+
+  La fonction 'compute_sum' a mis 0.05 secondes pour s'exécuter.
+
+----------------------------------------------------------------------------------
+
+Exercice 4 : Décorateur avec paramètres
+
+Écrivez un décorateur repeat(n) qui exécute une fonction donnée n fois.
+
+Instructions :
+
+1. Définir le décorateur repeat(n).
+
+2. Le décorateur doit exécuter la fonction décorée n fois.
+
+3. Appliquer le décorateur à une fonction say_hello() qui affiche "Bonjour!".
+
+4. Tester la fonction en spécifiant différents nombres de répétitions.
+
+Exemple de code :
+
+  @repeat(3)
+  def say_hello():
+      print("Bonjour!")
+
+  say_hello()
+
+Exemple de sortie attendue :
+  Bonjour!
+  Bonjour!
+  Bonjour!
