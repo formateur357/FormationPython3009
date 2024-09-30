@@ -28,3 +28,7 @@ Exemple de sortie attendue :
   print(livre1)
   print(livre2)
   Livre.afficher_nombre_de_livres()
+
+  Titre : 1984, Auteur : George Orwell, Pages : 328
+  Titre : Le Meilleur des mondes, Auteur : Aldous Huxley, Pages : 288
+  Nombre total de livres : 2
