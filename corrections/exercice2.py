@@ -71,9 +71,18 @@ Ensuite, vérifiez si le nombre 100 est présent dans la liste résultante en ut
 Solution
 """
 # Étape 1 : Générer la liste des nombres entiers de 1 à 10
+nombres = list(range(1, 11))
 
 # Étape 2 : Utiliser une liste en compréhension avec un opérateur ternaire
+resultat = [n**2 if n % 2 == 0 else n**3 for n in nombres]
 
 # Étape 3 : Afficher la liste résultante
+print(resultat)
 
 # Étape 4 : Utiliser une boucle for-else pour vérifier si 100 est dans la liste
+for nombre in resultat:
+    if nombre == 100:
+        print("100 est dans la liste.")
+        break
+else:
+    print("100 n'est pas dans la liste.")
