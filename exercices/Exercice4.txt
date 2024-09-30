@@ -1,0 +1,25 @@
+Exercice 1 : Générateur de nombres pairs
+
+Écrivez un générateur nommé generate_even_numbers(max_n) qui génère tous les nombres pairs de 0 jusqu'à max_n (inclus).
+
+Instructions :
+
+1. Définir une fonction génératrice generate_even_numbers(max_n).
+
+2. Utiliser l'instruction yield pour générer les nombres pairs.
+
+3. Tester le générateur en itérant dessus et en affichant les nombres générés.
+
+Exemple de sortie attendue :
+
+  for num in generate_even_numbers(10):
+      print(num)
+
+  0
+  2
+  4
+  6
+  8
+  10
+
+  
