@@ -1,0 +1,18 @@
+Exercice 1 : Filtrage et transformation avec les listes en compréhension
+
+Vous disposez d'une liste de nombres entiers de 1 à 20.
+Vous devez créer une nouvelle liste qui contient le carré de chaque nombre pair de la liste initiale.
+
+Instructions :
+
+Créer la liste initiale contenant les nombres de 1 à 20.
+
+Utiliser une liste en compréhension pour générer une nouvelle liste qui :
+
+- Filtre les nombres pairs.
+- Calcule le carré de ces nombres.
+- Afficher la liste résultante.
+
+Exemple de sortie attendue :
+
+[4, 16, 36, 64, 100, 144, 196, 256, 324, 400]
