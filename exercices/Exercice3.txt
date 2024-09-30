@@ -1,0 +1,20 @@
+Fonctions lambda imbriquées
+
+Écrivez une fonction puissance(n) qui retourne une fonction lambda calculant la puissance n d'un nombre donné.
+
+Instructions :
+
+1. Définir la fonction puissance(n).
+
+2. La fonction doit retourner une fonction lambda prenant un argument x et retournant x élevé à la puissance n.
+
+3. Utiliser cette fonction pour créer :
+
+- Une fonction carré qui calcule le carré d'un nombre.
+- Une fonction cube qui calcule le cube d'un nombre.
+
+4. Tester ces fonctions en calculant le carré et le cube de 5.
+
+Exemple de sortie attendue :
+  Le carré de 5 est 25
+  Le cube de 5 est 125  
