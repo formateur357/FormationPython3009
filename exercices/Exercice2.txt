@@ -1,3 +1,23 @@
+Conseils pour la résolution des exercices
+. Listes en compréhension :
+
+La syntaxe générale est : [expression for item in iterable if condition]
+Vous pouvez imbriquer des conditions et des expressions.
+Opérateur ternaire :
+
+La syntaxe est : valeur_si_vrai if condition else valeur_si_faux
+Il peut être utilisé à l'intérieur des listes en compréhension.
+Boucle for-else :
+
+Le bloc else est exécuté si la boucle se termine sans rencontrer un break.
+Utile pour les recherches où vous voulez savoir si un élément a été trouvé.
+Gestion des entrées utilisateur :
+
+Pensez à convertir les entrées en entiers avec int() lorsque c'est nécessaire.
+Vous pouvez ajouter des validations pour vous assurer que les entrées sont correctes.
+
+---------------------------------------------------------------------------------
+
 Exercice 1 : Filtrage et transformation avec les listes en compréhension
 
 Vous disposez d'une liste de nombres entiers de 1 à 20.
@@ -5,14 +25,96 @@ Vous devez créer une nouvelle liste qui contient le carré de chaque nombre pai
 
 Instructions :
 
-Créer la liste initiale contenant les nombres de 1 à 20.
+1. Créer la liste initiale contenant les nombres de 1 à 20.
 
-Utiliser une liste en compréhension pour générer une nouvelle liste qui :
+2. Utiliser une liste en compréhension pour générer une nouvelle liste qui :
 
 - Filtre les nombres pairs.
 - Calcule le carré de ces nombres.
-- Afficher la liste résultante.
+
+3. Afficher la liste résultante.
 
 Exemple de sortie attendue :
 
 [4, 16, 36, 64, 100, 144, 196, 256, 324, 400]
+
+---------------------------------------------------------------------------------
+
+Exercice 2 : Recherche avec for-else
+
+Vous devez écrire un programme qui vérifie si un nombre donné est un nombre premier.
+Si le nombre est premier, affichez un message confirmant qu'il est premier.
+Sinon, affichez ses plus petits diviseurs autres que 1.
+
+Instructions :
+
+1. Demander à l'utilisateur d'entrer un nombre entier positif supérieur à 1.
+
+2. Utiliser une boucle for avec else pour vérifier si le nombre est premier :
+- Parcourez les entiers de 2 à n - 1.
+- Si n est divisible par l'un de ces entiers, il n'est pas premier.
+- Si la boucle se termine sans trouver de diviseur, le nombre est premier.
+
+3. Afficher le résultat approprié.
+
+Exemple de sortie attendue :
+
+Entrée : 17
+  17 est un nombre premier.
+
+Entrée : 18
+  18 n'est pas un nombre premier. Il est divisible par 2.
+
+---------------------------------------------------------------------------------
+
+Exercice 3 : Utilisation de l'opérateur ternaire
+
+Écrivez un programme qui demande à l'utilisateur son âge et détermine s'il est majeur ou mineur en utilisant l'opérateur ternaire.
+
+Instructions :
+
+1. Demander à l'utilisateur d'entrer son âge.
+
+2. Utiliser l'opérateur ternaire pour définir une variable statut qui vaut :
+
+- "majeur" si l'âge est supérieur ou égal à 18.
+- "mineur" sinon.
+
+3. Afficher un message indiquant le statut de l'utilisateur.
+
+Exemple de sortie attendue :
+
+Entrée : 20
+  Vous êtes majeur.
+
+Entrée : 16
+  Vous êtes mineur.
+
+---------------------------------------------------------------------------------
+
+Exercice 4 : Combinaison des trois concepts
+
+Créez un programme qui génère une liste des 10 premiers nombres entiers positifs.
+Pour chaque nombre, si le nombre est divisible par 2, ajoutez son carré à la liste, sinon, ajoutez son cube.
+Utilisez une liste en compréhension avec un opérateur ternaire pour cela.
+Ensuite, vérifiez si le nombre 100 est présent dans la liste résultante en utilisant une boucle for-else.
+
+Instructions :
+
+1. Générer la liste des nombres entiers de 1 à 10.
+
+2. Utiliser une liste en compréhension avec un opérateur ternaire pour créer une nouvelle liste :
+
+- Si le nombre est divisible par 2, ajoutez son carré.
+- Sinon, ajoutez son cube.
+
+3. Afficher la liste résultante.
+
+4. Utiliser une boucle for-else pour vérifier si le nombre 100 est dans la liste :
+
+- Si trouvé, affichez "100 est dans la liste."
+- Sinon, affichez "100 n'est pas dans la liste."
+
+Exemple de sortie attendue :
+  [1, 4, 27, 16, 125, 36, 343, 64, 729, 100]
+  100 est dans la liste.
