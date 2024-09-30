@@ -1,3 +1,35 @@
+Conseils pour la résolution des exercices
+
+Attributs de classe vs attributs d'instance :
+
+- Les attributs de classe sont partagés par toutes les instances de la classe.
+- Les attributs d'instance sont propres à chaque objet.
+
+Méthodes de classe :
+
+- Utilisez le décorateur @classmethod.
+- La méthode reçoit la classe elle-même comme premier argument, conventionnellement nommé cls.
+
+Méthodes spéciales :
+
+- Les méthodes spéciales sont entourées de double underscore, comme __init__, __str__, __repr__, __eq__, __add__, __lt__, __gt__, etc.
+- Elles permettent de définir le comportement des objets pour certaines opérations ou fonctions intégrées.
+
+Propriétés :
+
+- Utilisez le décorateur @property pour créer des attributs gérés (getter).
+- Utilisez @attribute.setter pour définir le setter correspondant.
+
+Comparaison d'objets :
+
+- Implémentez les méthodes spéciales de comparaison (__eq__, __lt__, __gt__, etc.) pour permettre la comparaison d'objets.
+
+Création d'instances alternatives :
+
+- Les méthodes de classe peuvent être utilisées pour créer des constructeurs alternatifs (par exemple, créer un objet à partir de données différentes).
+
+-----------------------------------------------------------------------------------------------
+
 Exercice 1 : Gestion d'une bibliothèque de livres
 
 Créez une classe Livre pour représenter des livres dans une bibliothèque.
@@ -32,3 +64,144 @@ Exemple de sortie attendue :
   Titre : 1984, Auteur : George Orwell, Pages : 328
   Titre : Le Meilleur des mondes, Auteur : Aldous Huxley, Pages : 288
   Nombre total de livres : 2
+
+-----------------------------------------------------------------------------------------------
+
+Exercice 2 : Classe CompteBancaire avec méthodes spéciales
+
+Créez une classe CompteBancaire pour simuler un compte bancaire simple.
+
+Instructions :
+
+1. Définir la classe CompteBancaire avec un attribut d'instance solde initialisé à 0 par défaut.
+
+2. Définir la méthode spéciale __init__ pour initialiser le solde du compte.
+
+3. Définir des méthodes deposer(montant) et retirer(montant) pour déposer et retirer de l'argent du compte.
+
+4. Définir une méthode spéciale __str__ pour afficher le solde du compte sous la forme : "Solde du compte : {solde} €".
+
+5. Définir la méthode spéciale __add__ pour permettre d'ajouter deux comptes bancaires, ce qui crée un nouveau compte avec le solde total des deux comptes.
+
+6. Tester la création de comptes, les opérations de dépôt et de retrait, et l'addition de comptes.
+
+Exemple de sortie attendue :
+
+  compte1 = CompteBancaire(100)
+  compte2 = CompteBancaire(200)
+
+  compte1.deposer(50)
+  compte2.retirer(30)
+
+  print(compte1)
+  print(compte2)
+
+  compte3 = compte1 + compte2
+  print(compte3)
+
+  Solde du compte : 150 €
+  Solde du compte : 170 €
+  Solde du compte : 320 €
+
+-----------------------------------------------------------------------------------------------
+
+Exercice 3 : Classe Rectangle avec propriétés et méthodes spéciales
+
+Créez une classe Rectangle qui représente un rectangle avec une largeur et une hauteur.
+
+Instructions :
+
+1. Définir la classe Rectangle avec les attributs d'instance largeur et hauteur.
+
+2. Utiliser des propriétés pour contrôler l'accès aux attributs largeur et hauteur, en s'assurant qu'ils sont toujours positifs.
+
+3. Définir la méthode spéciale __str__ pour afficher les dimensions du rectangle.
+
+4. Définir la méthode spéciale __eq__ pour comparer deux rectangles en fonction de leur aire.
+
+5. Définir une méthode aire() qui calcule et retourne l'aire du rectangle.
+
+6. Tester la création de rectangles, la modification de leurs dimensions, et la comparaison entre eux.
+
+Exemple de sortie attendue :
+
+  rect1 = Rectangle(10, 5)
+  rect2 = Rectangle(5, 10)
+  rect3 = Rectangle(3, 7)
+
+  print(rect1)
+  print(f"Aire : {rect1.aire()}")
+
+  print(rect1 == rect2)  # Doit être True (aires égales)
+  print(rect1 == rect3)  # Doit être False (aires différentes)
+
+  Rectangle de largeur 10 et hauteur 5
+  Aire : 50
+  True
+  False
+
+-----------------------------------------------------------------------------------------------
+
+Exercice 4 : Classe Cercle avec méthode de classe et attribut de classe
+
+Créez une classe Cercle pour représenter des cercles avec un rayon.
+
+Instructions :
+
+1. Définir la classe Cercle avec l'attribut d'instance rayon.
+
+2. Définir un attribut de classe pi avec la valeur 3.14159.
+
+3. Définir une méthode aire() qui calcule et retourne l'aire du cercle.
+
+4. Définir une méthode de classe depuis_diametre(cls, diametre) qui crée un nouveau cercle en utilisant le diamètre.
+
+5. Tester la création de cercles en utilisant le rayon et le diamètre, et calculer leur aire.
+
+Exemple de sortie attendue :
+
+  cercle1 = Cercle(5)
+  print(f"Aire du cercle de rayon 5 : {cercle1.aire()}")
+
+  cercle2 = Cercle.depuis_diametre(10)
+  print(f"Aire du cercle de diamètre 10 : {cercle2.aire()}")
+
+  Aire du cercle de rayon 5 : 78.53975
+  Aire du cercle de diamètre 10 : 78.53975
+
+-----------------------------------------------------------------------------------------------
+
+Exercice 5 : Classe Employe avec méthodes spéciales et attributs de classe
+
+Créez une classe Employe pour représenter des employés avec un identifiant unique.
+
+Instructions :
+
+1. Définir la classe Employe avec les attributs d'instance prenom, nom, et salaire.
+
+2. Définir un attribut de classe compteur_id initialisé à 1 pour attribuer un identifiant unique à chaque employé.
+
+3. Définir la méthode spéciale __init__ pour initialiser les attributs d'instance et attribuer un identifiant unique stocké dans self.id, puis incrémenter compteur_id.
+
+4. Définir la méthode spéciale __repr__ pour afficher une représentation officielle de l'employé sous la forme : "Employe(id={id}, nom={nom}, prenom={prenom}, salaire={salaire})".
+
+5. Définir la méthode spéciale __gt__ pour comparer deux employés en fonction de leur salaire.
+
+6. Tester la création d'employés et la comparaison entre eux.
+
+Exemple de sortie attendue :
+
+  emp1 = Employe("Alice", "Dupont", 3000)
+  emp2 = Employe("Bob", "Martin", 3500)
+  emp3 = Employe("Charlie", "Durand", 2800)
+
+  print(emp1)
+  print(emp2)
+
+  print(emp1 > emp3)  # Doit être True
+  print(emp1 > emp2)  # Doit être False
+
+  Employe(id=1, nom=Dupont, prenom=Alice, salaire=3000)
+  Employe(id=2, nom=Martin, prenom=Bob, salaire=3500)
+  True
+  False
