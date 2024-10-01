@@ -192,7 +192,7 @@ class Employe:
 
     def __init__(self, prenom, nom, salaire):
         """Initialise un nouvel employé avec un identifiant unique."""
-        self.prenom = prenom
+        self.__prenom = prenom
         self.nom = nom
         self.salaire = salaire
 

@@ -1,0 +1,43 @@
+Exercice 1 : Gestion des Exceptions
+
+Objectif :
+
+Apprendre à utiliser les blocs try, except, else et finally pour gérer les exceptions en Python.
+
+Instructions :
+
+1. Écrire une fonction diviser(a, b):
+
+La fonction doit prendre deux nombres a et b en paramètres.
+Elle doit tenter de diviser a par b et afficher le résultat.
+
+2. Gérer l'exception de division par zéro :
+
+Utilisez un bloc try-except pour attraper l'exception ZeroDivisionError.
+Si une division par zéro se produit, affichez un message d'erreur approprié.
+
+3. Utiliser les blocs else et finally :
+
+Le bloc else doit contenir le code qui s'exécute si aucune exception n'est levée.
+Le bloc finally doit contenir du code qui s'exécute dans tous les cas, qu'il y ait une exception ou non.
+
+4.Tester la fonction :
+
+Appelez la fonction avec différents paramètres pour tester les cas où la division réussit et où une division par zéro se produit.
+
+Exemple :
+
+  def diviser(a, b):
+      # Votre code ici
+
+  # Cas de test
+  diviser(10, 2)
+  diviser(5, 0)
+
+Sortie attendue :
+
+  Le résultat est : 5.0
+  Opération réussie.
+  Opération terminée.
+  Erreur : Division par zéro.
+  Opération terminée.
