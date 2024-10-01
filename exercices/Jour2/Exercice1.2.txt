@@ -1,0 +1,47 @@
+Exercice : Créer un objet itérable personnalisé en Python
+
+Instructions :
+
+1. Créer une classe CompteurPersonnalisé :
+
+- Cette classe doit prendre deux paramètres lors de l'initialisation :
+    . debut : la valeur à partir de laquelle le compteur commence.
+    . fin : la valeur à laquelle le compteur se termine (non inclus).
+
+2. Rendre la classe itérable :
+
+    . Implémentez la méthode __iter__() qui retourne l'objet itérateur.
+    . Implémentez la méthode __next__() qui retourne la valeur suivante dans la séquence.
+
+3. Comportement attendu :
+
+    . À chaque appel de next(), l'objet doit retourner la valeur suivante en incrémentant de 1.
+    . Lorsque la valeur actuelle atteint ou dépasse fin, une exception StopIteration doit être levée pour arrêter l'itération.
+
+4. Tester votre classe :
+
+    . Créez une instance de CompteurPersonnalisé avec des valeurs de votre choix.
+    . Utilisez une boucle for pour itérer sur l'objet et afficher chaque valeur.
+
+
+Exemple :
+
+  class CompteurPersonnalisé:
+      # Votre code ici
+
+  compteur = CompteurPersonnalisé(1, 5)
+  for nombre in compteur:
+      print(nombre)
+
+Sortie attendue :
+
+  1
+  2
+  3
+  4
+
+Conseils :
+
+- Assurez-vous que la méthode __iter__() retourne self si votre classe implémente également __next__().
+- La méthode __next__() doit gérer l'état interne (par exemple, la valeur actuelle du compteur).
+- N'oubliez pas de lever StopIteration pour arrêter l'itération lorsque la condition est remplie.

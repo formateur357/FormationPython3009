@@ -1,0 +1,180 @@
+Conseils :
+
+. Pour l'héritage simple : Rappelez-vous que la classe dérivée hérite des attributs et méthodes de la classe de base.
+
+. Pour l'héritage multiple : L'ordre dans lequel vous héritez des classes affecte l'ordre de résolution des méthodes.
+
+. Pour le problème du diamant : Python utilise le MRO (Method Resolution Order) pour déterminer quelle méthode doit être appelée. 
+
+-------------------------------------------------------------------------------------------------
+
+Exercice 1 : Héritage Simple
+
+Objectif :
+
+Comprendre comment implémenter l'héritage simple en Python en créant des classes dérivées d'une classe de base.
+
+Instructions :
+
+1. Créer une classe de base Vehicule :
+
+    . Implémentez un constructeur (__init__) qui initialise les attributs suivants :
+        . marque : la marque du véhicule.
+        . modele : le modèle du véhicule.
+    . Implémentez une méthode demarrer() qui affiche un message indiquant que le véhicule démarre.
+
+2. Créer une classe dérivée Voiture qui hérite de Vehicule :
+
+    . Ajoutez un attribut supplémentaire nombre_de_portes dans le constructeur.
+    . Surchargez la méthode demarrer() pour afficher un message spécifique à la voiture.
+    . Ajoutez une méthode afficher_info() qui affiche toutes les informations sur la voiture (marque, modèle, nombre de portes).
+
+3. Créer une instance de Voiture :
+
+    . Initialisez-la avec des valeurs de votre choix.
+    . Appelez la méthode demarrer().
+    . Appelez la méthode afficher_info().
+
+# Création d'une instance de Voiture
+
+ma_voiture = Voiture("Toyota", "Corolla", 4)
+ma_voiture.demarrer()
+ma_voiture.afficher_info()
+
+Exemple :
+
+  class Vehicule:
+      # Votre code ici
+
+  class Voiture(Vehicule):
+      # Votre code ici
+
+  # Création d'une instance de Voiture
+  ma_voiture = Voiture("Toyota", "Corolla", 4)
+  ma_voiture.demarrer()
+  ma_voiture.afficher_info()
+
+Sortie attendue :
+
+  La voiture Toyota Corolla démarre.
+  Marque : Toyota
+  Modèle : Corolla
+  Nombre de portes : 4
+
+-------------------------------------------------------------------------------------------------
+
+Exercice 2 : Héritage Multiple
+
+Objectif :
+
+Apprendre à utiliser l'héritage multiple en Python et comprendre l'ordre de résolution des méthodes (MRO).
+
+Instructions :
+
+1.Créer une classe Mangeur :
+
+    . Implémentez une méthode manger() qui affiche "Mange de la nourriture."
+
+2.Créer une classe Dormeur :
+
+    . Implémentez une méthode dormir() qui affiche "Dort paisiblement."
+    . Implémentez une méthode manger() qui affiche "Mange avant de dormir."
+
+3. Créer une classe Animal qui hérite de Mangeur et Dormeur :
+
+    . N'implémentez aucune méthode supplémentaire.
+
+4. Tester la classe Animal :
+
+    . Créez une instance de Animal.
+    . Appelez les méthodes manger() et dormir().
+
+5. Observer l'ordre de résolution des méthodes (MRO) :
+
+    . Utilisez la fonction help(Animal) ou Animal.__mro__ pour afficher l'ordre de résolution.
+
+Exemple :
+
+  class Mangeur:
+      # Votre code ici
+
+  class Dormeur:
+      # Votre code ici
+
+  class Animal(Mangeur, Dormeur):
+      pass
+
+  mon_animal = Animal()
+  mon_animal.manger()
+  mon_animal.dormir()
+
+  # Afficher l'ordre de résolution des méthodes
+  print(Animal.__mro__)
+
+Sortie attendue :
+
+  Mange de la nourriture.
+  Dort paisiblement.
+  (<class '__main__.Animal'>, <class '__main__.Mangeur'>, <class '__main__.Dormeur'>, <class 'object'>)
+
+
+
+-------------------------------------------------------------------------------------------------
+
+Exercice 3 : Le Problème du Diamant
+
+Objectif :
+
+Comprendre le problème du diamant en héritage multiple et comment Python le gère grâce au MRO.
+
+Instructions :
+
+1. Créer une classe de base A :
+
+    . Implémentez une méthode afficher() qui affiche "Classe A".
+
+2. Créer deux classes B et C qui héritent de A :
+
+    . Chaque classe surcharge la méthode afficher() pour afficher respectivement "Classe B" et "Classe C".
+
+3. Créer une classe D qui hérite de B et C :
+
+    . N'implémentez aucune méthode supplémentaire.
+
+4. Tester la classe D :
+
+    . Créez une instance de D.
+    . Appelez la méthode afficher().
+
+5. Analyser le résultat et expliquer :
+
+    . Observez quelle méthode est appelée et pourquoi.
+    . Utilisez D.__mro__ pour comprendre l'ordre de résolution des méthodes.
+
+Exemple :
+
+  class A:
+      def afficher(self):
+          print("Classe A")
+
+  class B(A):
+      def afficher(self):
+          print("Classe B")
+
+  class C(A):
+      def afficher(self):
+          print("Classe C")
+
+  class D(B, C):
+      pass
+
+  d = D()
+  d.afficher()
+
+  # Afficher l'ordre de résolution des méthodes
+  print(D.__mro__)
+
+Sortie attendue :
+
+  Classe B
+  (<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>)
