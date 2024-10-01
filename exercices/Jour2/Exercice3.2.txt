@@ -1,3 +1,13 @@
+Conseils :
+
+. Création d'exceptions personnalisées : N'oubliez pas de toujours hériter de la classe Exception ou de l'une de ses sous-classes.
+
+. Gestion des exceptions multiples : Vous pouvez utiliser plusieurs blocs except pour gérer différents types d'exceptions.
+
+. Messages d'erreur clairs : Fournissez des messages d'erreur informatifs pour aider l'utilisateur à comprendre ce qui s'est mal passé.
+
+--------------------------------------------------------------------------------
+
 Exercice 1 : Gestion des Exceptions
 
 Objectif :
@@ -41,3 +51,88 @@ Sortie attendue :
   Opération terminée.
   Erreur : Division par zéro.
   Opération terminée.
+
+
+---------------------------------------------------------------------------------------------
+
+Exercice 2 : Création d'une Exception Personnalisée
+
+Objectif :
+
+Apprendre à créer une classe d'exception personnalisée en Python et à l'utiliser pour gérer des erreurs spécifiques.
+
+Instructions :
+
+1. Créer une classe d'exception personnalisée ValeurNegativeError :
+
+La classe doit hériter de la classe intégrée Exception.
+Elle doit accepter un message d'erreur personnalisé lors de l'initialisation.
+
+2. Écrire une fonction racine_carree(n):
+
+La fonction doit prendre un nombre n en paramètre.
+Si n est négatif, elle doit lever une exception ValeurNegativeError.
+Sinon, elle doit retourner la racine carrée de n.
+
+3. Gérer l'exception personnalisée :
+
+Dans le code principal, appelez la fonction racine_carree(n) avec différents arguments.
+Utilisez un bloc try-except pour attraper l'exception ValeurNegativeError et afficher le message d'erreur.
+
+Exemple :
+
+  class ValeurNegativeError(Exception):
+      # Votre code ici
+
+  def racine_carree(n):
+      # Votre code ici
+
+  # Cas de test
+  try:
+      print(racine_carree(9))
+      print(racine_carree(-5))
+  except ValeurNegativeError as e:
+      print(e)
+
+Sortie attendue :
+
+  3.0
+  La valeur ne peut pas être négative.
+
+-------------------------------------------------------------------------------------
+
+Exercice 3 : Gestion des Exceptions avec Plusieurs Blocs except
+
+Objectif :
+
+Comprendre comment gérer différentes exceptions en utilisant plusieurs blocs except.
+
+Instructions :
+
+1. Écrire une fonction lire_entier():
+
+La fonction doit demander à l'utilisateur d'entrer un nombre entier.
+Utilisez la fonction intégrée input() pour la saisie.
+
+2. Gérer les exceptions potentielles :
+
+ValueError : Si l'utilisateur entre une valeur qui n'est pas un entier, attrapez l'exception et affichez un message d'erreur.
+KeyboardInterrupt : Si l'utilisateur interrompt le programme (par exemple, en appuyant sur Ctrl+C), attrapez l'exception et affichez un message approprié.
+
+3. Tester la fonction :
+
+Appelez la fonction et testez-la en entrant différentes valeurs, y compris des entrées invalides et en interrompant le programme.
+
+Exemple :
+
+  def lire_entier():
+      # Votre code ici
+
+  # Appel de la fonction
+  lire_entier()
+
+Cas de test :
+
+  . Entrée valide : Si l'utilisateur entre 10, le programme doit simplement accepter la valeur.
+  . Entrée invalide : Si l'utilisateur entre abc, le programme doit gérer ValueError.
+  . Interruption : Si l'utilisateur appuie sur Ctrl+C, le programme doit gérer KeyboardInterrupt.
