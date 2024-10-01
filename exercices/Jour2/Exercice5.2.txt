@@ -1,0 +1,172 @@
+Introduction
+
+L'interfaçage entre Python et C permet de combiner la simplicité et la flexibilité de Python avec la performance et le contrôle de bas niveau offerts par le langage C.
+Les exercices suivants vous guideront à travers différentes méthodes pour interfacer Python avec du code C, y compris l'utilisation de modules intégrés comme ctypes, la création de modules d'extension en C, l'utilisation de SWIG et de Cython.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Exercice 1: Appeler une fonction C simple depuis Python en utilisant ctypes
+
+Objectif: Utiliser le module ctypes pour appeler une fonction C qui calcule la somme de deux entiers.
+
+Instructions:
+
+1. Écrire la fonction C:
+
+Créez un fichier C nommé addition.c contenant une fonction int addition(int a, int b) qui retourne la somme de a et b.
+
+// addition.c
+int addition(int a, int b) {
+    return a + b;
+}
+
+2. Compiler la bibliothèque partagée:
+
+Sur Linux/Mac:
+  gcc -shared -o libaddition.so -fPIC addition.c
+
+3. Écrire le script Python:
+
+Utilisez ctypes pour charger la bibliothèque et appeler la fonction addition.
+
+4. Tester la fonction:
+
+Appelez addition(10, 15) et affichez le résultat.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Exercice 2: Créer un module d'extension Python en C
+
+Objectif: Écrire un module d'extension en C qui peut être importé directement dans Python.
+
+Instructions:
+
+1. Écrire la fonction C:
+
+Créez un fichier factorielle.c avec une fonction long factorielle(int n) qui calcule la factorielle de n.
+
+#include <Python.h>
+
+long factorielle(int n) {
+    if (n < 0) return -1; // Erreur pour les nombres négatifs
+    if (n == 0) return 1;
+    return n * factorielle(n - 1);
+}
+
+// Wrapper pour Python
+static PyObject* py_factorielle(PyObject* self, PyObject* args) {
+    int n;
+    if (!PyArg_ParseTuple(args, "i", &n))
+        return NULL;
+    long result = factorielle(n);
+    return PyLong_FromLong(result);
+}
+
+// Méthodes du module
+static PyMethodDef FactorielleMethods[] = {
+    {"factorielle", py_factorielle, METH_VARARGS, "Calculer la factorielle d'un nombre"},
+    {NULL, NULL, 0, NULL}
+};
+
+// Définition du module
+static struct PyModuleDef factoriellemodule = {
+    PyModuleDef_HEAD_INIT,
+    "factorielle_module",
+    NULL,
+    -1,
+    FactorielleMethods
+};
+
+// Initialisation du module
+PyMODINIT_FUNC PyInit_factorielle_module(void) {
+    return PyModule_Create(&factoriellemodule);
+}
+
+
+2. Créer le module d'extension:
+
+Suivez la structure requise pour les modules d'extension Python en C.
+
+3. Écrire le fichier setup.py:
+
+Utilisez distutils ou setuptools pour définir le script de compilation.
+
+4. Compiler le module:
+
+Exécutez python setup.py build ou python setup.py install.
+
+5. Tester dans Python:
+
+Importez le module et appelez factorielle(5).
+
+------------------------------------------------------------------------------------------------------------------------
+
+Exercice 3: Accélérer du code Python avec Cython
+
+Objectif: Utiliser Cython pour optimiser une fonction Python lente en la compilant en code C.
+
+Instructions:
+
+1. Écrire la fonction Python:
+
+Une fonction récursive pour calculer les nombres de Fibonacci.
+
+2. Mesurer les performances:
+
+Mesurez le temps pour n=35.
+
+3. Convertir en Cython:
+
+Créez un fichier .pyx et ajoutez des annotations de type.
+
+4. Compiler le module Cython:
+
+Utilisez un setup.py pour la compilation.
+
+5. Comparer les performances:
+
+Mesurez à nouveau le temps d'exécution.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Exercice 4 : Gestion des structures et des pointeurs entre Python et C
+
+Objectif: Manipuler des structures C depuis Python en utilisant ctypes.
+
+Instructions:
+
+1. Définir la structure C:
+
+Créez une structure Point avec les champs int x et int y.
+
+// point.h
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+void deplacer_point(Point* p, int dx, int dy);
+
+2. Écrire la fonction C:
+
+Une fonction void deplacer_point(Point* p, int dx, int dy) qui modifie les coordonnées.
+
+// point.c
+#include "point.h"
+
+void deplacer_point(Point* p, int dx, int dy) {
+    p->x += dx;
+    p->y += dy;
+}
+
+3. Compiler la bibliothèque:
+
+Créez une bibliothèque partagée.
+
+4. Définir la structure en Python:
+
+Utilisez ctypes.Structure pour définir Point.
+
+5. Appeler la fonction C depuis Python:
+
+Modifiez un point depuis Python et affichez les nouvelles coordonnées.
