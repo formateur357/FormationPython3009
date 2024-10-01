@@ -92,3 +92,8 @@ Remplacez le pool de threads par un pool de processus.
 Reflexion :
 Le multiprocessing est préférable pour les tâches CPU-bound car chaque processus a son propre interpréteur Python et son propre GIL, ce qui permet un véritable parallélisme.
 Cependant, pour les tâches I/O-bound comme les requêtes réseau, le multithreading est généralement plus efficace.
+
+-----------------------------------------------------------------------------------------------
+Bonus :
+
+Pour chaque exercice, mesurez le temps d'exécution total du programme et comparez les performances entre les différentes approches (threads vs processus).
