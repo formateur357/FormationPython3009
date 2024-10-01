@@ -1,3 +1,12 @@
+Notes supplémentaires :
+
+Threads démons : Un thread démon s'exécute en arrière-plan et ne bloque pas la terminaison du programme. Il s'arrête automatiquement lorsque tous les threads non-démons sont terminés.
+Locks : Les verrous sont essentiels pour éviter les conditions de course lors de l'accès à des ressources partagées.
+GIL : Le Global Interpreter Lock empêche l'exécution simultanée de plusieurs threads Python natifs. Le multiprocessing permet de contourner cette limitation.
+ThreadPoolExecutor vs ProcessPoolExecutor : Le choix entre les deux dépend du type de tâche (I/O-bound vs CPU-bound).
+
+-----------------------------------------------------------------------------------------------
+
 Exercice : 1. Créer, déclarer et lancer des threads
 
 Écrivez un programme Python qui crée deux threads.
@@ -28,3 +37,58 @@ def print_letters():
 
 ... a completer
 
+-----------------------------------------------------------------------------------------------
+Exercice : 2. Les threads démons
+
+Modifiez le programme précédent pour que le thread qui imprime les lettres soit un thread démon.
+Observez et expliquez le comportement du programme lorsque le thread principal se termine.
+
+Consignes :
+
+Définissez le thread des lettres comme démon en utilisant l'attribut approprié.
+Notez si le thread démon continue de s'exécuter après la fin du thread principal.
+
+Observation :
+
+Le thread démon s'arrête automatiquement lorsque le thread principal se termine, même si le travail du thread démon n'est pas terminé.
+
+-----------------------------------------------------------------------------------------------
+Exercice : 3. Les verrous (Locks)
+
+Écrivez un programme qui simule une situation de partage de ressource entre threads.
+Créez deux threads qui incrémentent une variable globale partagée 1000 fois chacun.
+Utilisez un verrou pour éviter les conditions de course et assurez-vous que la variable globale a la valeur attendue à la fin.
+
+Consignes :
+
+Utilisez threading.Lock() pour synchroniser l'accès à la variable partagée.
+Sans le verrou, observez les résultats et expliquez les conditions de course.
+
+Sans le verrou :
+
+Le compteur n'atteindra probablement pas 2000 en raison des conditions de course.
+
+-----------------------------------------------------------------------------------------------
+Exercice : 4. ThreadPoolExecutor
+
+Utilisez concurrent.futures.ThreadPoolExecutor pour télécharger en parallèle plusieurs pages web.
+Écrivez un programme qui prend une liste d'URL et télécharge le contenu de chaque page en utilisant un pool de threads.
+
+Consignes :
+
+Utilisez le module requests pour effectuer les requêtes HTTP.
+Gérez les exceptions possibles lors des requêtes.
+Affichez le statut de chaque téléchargement (succès ou échec).
+
+-----------------------------------------------------------------------------------------------
+Exercice : 5. Éviter le multithreading grâce au multiprocessing
+
+Prenez le programme de l'exercice précédent et modifiez-le pour utiliser concurrent.futures.ProcessPoolExecutor au lieu de ThreadPoolExecutor. 
+
+Consignes :
+
+Remplacez le pool de threads par un pool de processus.
+
+Reflexion :
+Le multiprocessing est préférable pour les tâches CPU-bound car chaque processus a son propre interpréteur Python et son propre GIL, ce qui permet un véritable parallélisme.
+Cependant, pour les tâches I/O-bound comme les requêtes réseau, le multithreading est généralement plus efficace.
