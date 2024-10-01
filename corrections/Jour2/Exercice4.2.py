@@ -125,7 +125,7 @@ import requests  # Pour effectuer des requêtes HTTP
 # Liste des URL à télécharger
 urls = [
     "https://www.python.org",
-    "https://www.openai.com",
+    "https://www.google.com",
     "https://www.github.com",
     # Ajoutez plus d'URL si nécessaire
 ]
