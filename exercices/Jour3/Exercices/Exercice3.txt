@@ -1,0 +1,75 @@
+Ajout des tests unitaires pour le projet
+
+L'objectif ici est de mettre en place des tests unitaires pour valider le bon fonctionnement des différentes classes et fonctionnalités de l'application de gestion de bibliothèque que nous avons modulée dans l'exercice précédent. 
+Les tests unitaires garantissent que chaque partie du code fonctionne comme prévu de manière isolée.
+
+Nous allons tester les classes suivantes :
+
+. Livre
+. Utilisateur
+. Bibliothèque
+. Gestionnaire de fichier (sauvegarde et chargement)
+
+
+Nous utiliserons le module unittest de Python, qui est une bibliothèque standard pour les tests unitaires.
+
+
+Étape 1 : Structure du projet avec tests
+
+Voici la structure du projet avec l'ajout d'un dossier tests/ pour contenir tous les fichiers de tests :
+
+bibliotheque_project/
+│
+├── bibliotheque/
+│   ├── __init__.py             # Initialise le package.
+│   ├── livre.py                # Contient la classe Livre.
+│   ├── utilisateur.py          # Contient la classe Utilisateur.
+│   ├── bibliotheque.py         # Contient la classe Bibliothèque.
+│   └── gestionnaire_fichier.py  # Gère la sauvegarde/chargement des données.
+│
+├── tests/
+│   ├── __init__.py             # Initialise le package de tests.
+│   ├── test_livre.py           # Tests unitaires pour la classe Livre.
+│   ├── test_utilisateur.py     # Tests unitaires pour la classe Utilisateur.
+│   ├── test_bibliotheque.py    # Tests unitaires pour la classe Bibliothèque.
+│   └── test_gestionnaire_fichier.py # Tests pour la gestion des fichiers.
+│
+├── main.py                     # Point d'entrée de l'application.
+├── requirements.txt            # Liste des dépendances du projet.
+└── README.md                   # Documentation du projet.
+
+
+Étape 2 : Mise en place des tests unitaires
+
+1. Tests pour la classe Livre
+Dans le fichier test_livre.py, nous allons tester la création de livres, les actions d'emprunt et de retour, ainsi que les exceptions levées si les actions sont incorrectes.
+
+2. Tests pour la classe Utilisateur
+Dans le fichier test_utilisateur.py, nous allons tester la gestion des livres empruntés par l’utilisateur, y compris les cas d’erreur.
+
+3. Tests pour la classe Bibliothèque
+Dans le fichier test_bibliotheque.py, nous allons tester les opérations de base de la bibliothèque, telles que l'ajout, la suppression, le prêt et le retour de livres.
+
+4. Tests pour la gestion des fichiers
+Dans test_gestionnaire_fichier.py, nous allons tester la sauvegarde et le chargement des données depuis des fichiers. Ces tests nécessitent l’utilisation de fichiers temporaires.
+
+
+Étape 3 : Exécution des tests
+
+Pour exécuter les tests, vous pouvez utiliser la commande suivante dans votre terminal :
+
+  python -m unittest discover -s tests
+
+Cette commande recherche tous les fichiers de test dans le dossier tests/ et exécute les tests qu'ils contiennent.
+
+
+Étape 4 : Bonnes pratiques pour les tests
+
+. Isolation :
+  Chaque test doit être isolé des autres. Utilisez les méthodes setUp() et tearDown() pour créer et nettoyer les données ou les fichiers avant et après chaque test.
+
+. Testez les cas normaux et les erreurs : 
+  Chaque classe est testée pour ses fonctionnalités normales (ajout, suppression, prêt, etc.), mais également pour les cas d'erreur (tentatives de suppression de livres non existants, prêt d'un livre déjà emprunté, etc.).
+
+. Test des fichiers :
+  Le test des fichiers garantit que les sauvegardes et chargements de la bibliothèque fonctionnent correctement. Le fichier de test est créé temporairement et supprimé après chaque test.
