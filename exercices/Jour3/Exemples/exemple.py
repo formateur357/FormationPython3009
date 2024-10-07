@@ -25,11 +25,59 @@ MAX_UTILISATEURS = 100
 import os # Modules standards
 import sys
 
-import numpy # Modules tiers
+import numpy as np # Modules tiers
 
-import fibonnaci # Modules locaux
+from fibonacci import fibonacci # Correct # Modules locaux
+from . import fibonacci # Incorrect
 
 # Incorrect
 import os, sys
 
-#
+# Laissez deux lignes vides avant la définition d'une classe ou d'une fonction de niveau supérieur.
+# Laissez une ligne vide entre les méthodes d'une classe.
+
+
+# Correct
+def ajouter_element(elements=None):
+    if elements is None:
+        elements = []
+    elements.append(1)
+    return elements
+
+
+# Incorrect
+def ajouter_element(elements=[]):
+    elements.append(1)
+    return elements
+
+
+# Correct
+def ma_fonction(param):
+    """
+    Cette fonction fait quelque chose avec le paramètre donné.
+
+    :param param: description du paramètre
+    :return: description du retour
+    """
+    pass
+
+# Correct
+try:
+    fichier = open("fichier.txt", "r")
+except FileNotFoundError:
+    print("Fichier non trouvé.")
+
+# Incorrect
+try:
+    fichier = open("fichier.txt", "r")
+except Exception:
+    print("Erreur.")
+
+# Correct
+with open("fichier.txt", "r") as fichier:
+    contenu = fichier.read()
+
+# Incorrect
+fichier = open("fichier.txt", "r")
+contenu = fichier.read()
+fichier.close()
