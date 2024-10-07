@@ -65,14 +65,14 @@ class Bibliothèque:
         Affiche un rapport des livres disponibles et empruntés.
         """
         livres_disponibles = [livre for livre in self.livres if not livre.emprunte]
-        livres_empruntes = [livre for livre in self.livres if livre.emprunte]
+        livres_empruntés = [livre for livre in self.livres if livre.emprunte]
 
         print("\nLivres disponibles :")
         for livre in livres_disponibles:
             livre.afficher_details()
 
         print("\nLivres empruntés :")
-        for livre in livres_empruntes:
+        for livre in livres_empruntés:
             livre.afficher_details()
     
     def sauvegarder_donnees(self):
