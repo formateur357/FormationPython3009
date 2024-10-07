@@ -81,3 +81,29 @@ with open("fichier.txt", "r") as fichier:
 fichier = open("fichier.txt", "r")
 contenu = fichier.read()
 fichier.close()
+
+# Correct
+if mon_liste:  # Si la liste n'est pas vide
+    pass
+
+# Incorrect
+if len(mon_liste) > 0:
+    pass
+
+# Correct
+total = (premiere_variable
+         + deuxieme_variable
+         - troisieme_variable)
+
+# Incorrect
+total = premiere_variable + \
+        deuxieme_variable - \
+        troisieme_variable
+
+# Correct
+liste = [1, 2, 3]
+dictionnaire = {"clé": "valeur"}
+
+# Incorrect
+liste = [ 1, 2, 3 ]
+dictionnaire = { "clé" : "valeur" }
