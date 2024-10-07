@@ -1,0 +1,44 @@
+Exercice : Utilisation des Environnements Virtuels avec venv
+
+Objectif :
+
+Créer un environnement virtuel pour un projet Python qui récupère des données météo depuis une API en utilisant le package requests. 
+Vous allez installer les dépendances nécessaires, écrire un script simple, et gérer les dépendances avec pip.
+
+Étapes de l'Exercice :
+
+1. Créer le répertoire de projet.
+
+2. Créer et activer un environnement virtuel.
+
+3. Activez-le.
+
+4. Installer le package requests.
+
+5. Écrire le script Python :
+
+Créez un fichier meteo.py et copiez-y ce code :
+
+import requests
+
+def obtenir_meteo(ville):
+    api_key = 'votre_cle_api'
+    url = f'http://api.openweathermap.org/data/2.5/weather?q={ville}&appid={api_key}&lang=fr&units=metric'
+    réponse = requests.get(url)
+    if réponse.status_code == 200:
+        données = réponse.json()
+        température = données['main']['temp']
+        description = données['weather'][0]['description']
+        print(f"La température à {ville} est de {température}°C avec {description}.")
+    else:
+        print("Erreur lors de la récupération des données météo.")
+
+if __name__ == "__main__":
+    ville = input("Entrez le nom d'une ville : ")
+    obtenir_meteo(ville)
+
+6. Tester le script.
+
+7. Générer un fichier requirements.txt.
+
+8. Désactiver l’environnement virtuel.
