@@ -44,6 +44,7 @@ def test_livre_deja_disponible(livre):
 
 """
 Bonnes pratiques appliquées :
+
 1. Utilisation des fixtures : Les fixtures sont utilisées pour initialiser les objets récurrents comme les livres, les utilisateurs et la bibliothèque, ce qui permet de réduire la duplication de code et d'améliorer la lisibilité.
 
 2. Test des exceptions avec pytest.raises : Nous utilisons pytest.raises avec un message pour capturer les exceptions attendues de manière plus explicite.
