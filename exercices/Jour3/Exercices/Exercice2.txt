@@ -1,0 +1,70 @@
+Contexte
+
+Vous devez créer une application qui gère une bibliothèque de livres. 
+L'application doit permettre d'ajouter des livres, de supprimer des livres, de prêter des livres à des utilisateurs, et de générer un rapport des livres actuellement disponibles et empruntés.
+
+Fonctionnalités à implémenter
+
+1. Classe Livre :
+
+- Représente un livre avec un titre, un auteur, et un état (disponible ou emprunté).
+
+- Méthodes : prêter, retourner, afficher_détails.
+
+2. Classe Bibliothèque :
+
+- Gère une collection de livres.
+
+- Méthodes :
+  . ajouter_livre: ajoute un livre à la collection.
+  . supprimer_livre: supprime un livre de la collection.
+  . prêter_livre: prête un livre à un utilisateur.
+  . retourner_livre: récupère un livre emprunté.
+  . afficher_rapport: affiche la liste des livres disponibles et empruntés.
+  . sauvegarder_donnees: enregistre l'état de la bibliothèque dans un fichier texte.
+
+3. Classe Utilisateur :
+
+- Représente un utilisateur de la bibliothèque avec un nom et une liste de livres empruntés.
+
+- Méthodes : emprunter_livre, retourner_livre.
+
+Exigences PEP 8 à respecter :
+
+  . Utilisation correcte de l'indentation (4 espaces par niveau).
+  . Nommage cohérent en utilisant snake_case pour les fonctions et variables, et CamelCase pour les classes.
+  . Commentaires et docstrings pour chaque classe et méthode.
+  . Gestion propre des importations.
+  . Limitation de la longueur des lignes à 79 caractères.
+
+Étapes de l'exercice
+
+1. Créer les classes Livre, Bibliothèque, et Utilisateur :
+
+  . Chaque classe doit être bien documentée avec des docstrings.
+  . Les méthodes doivent avoir des docstrings décrivant leurs paramètres et leur rôle.
+
+2. Gestion des erreurs avec des exceptions :
+
+  . Si un livre déjà emprunté est demandé, une exception personnalisée doit être levée.
+  . Si un livre non existant est supprimé, gérer cette erreur de manière propre.
+
+3. Manipulation des fichiers :
+
+  . Sauvegardez l’état de la bibliothèque dans un fichier texte (bibliotheque.txt), chaque fois qu'un livre est ajouté, supprimé, ou emprunté.
+  . Utilisez un gestionnaire de contexte (with) pour ouvrir et écrire dans le fichier.
+
+4. Rapport des livres disponibles et empruntés :
+
+  . Implémentez une méthode pour afficher un rapport proprement formaté des livres disponibles et des livres empruntés.
+
+
+Consignes supplémentaires :
+
+1. Documentation : Chaque méthode doit être documentée avec une docstring expliquant son rôle, ses paramètres et sa sortie.
+
+2. Gestion des exceptions : Gérez proprement les erreurs, notamment les cas où un livre est déjà emprunté ou quand un utilisateur tente de retourner un livre qu’il n’a pas emprunté.
+
+3. Organisation du code : Utilisez un fichier séparé pour la gestion des classes et un fichier principal pour tester et exécuter votre programme.
+
+4. Test final : Créez plusieurs utilisateurs et livres pour simuler différents cas d'utilisation, et assurez-vous que tout fonctionne correctement.
