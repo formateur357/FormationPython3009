@@ -1,12 +1,12 @@
-from livre import Livre
-from utilisateur import Utilisateur
+from .livre import Livre
+from .utilisateur import Utilisateur
 
 class Bibliothèque:
     """
     Gère une collection de livres dans une bibliothèque.
     """
     
-    def __init__(self):
+    def __init__(self): 
         """
         Initialise une bibliothèque avec une liste vide de livres.
         """
@@ -69,11 +69,11 @@ class Bibliothèque:
 
         print("\nLivres disponibles :")
         for livre in livres_disponibles:
-            livre.afficher_détails()
+            livre.afficher_details()
 
         print("\nLivres empruntés :")
         for livre in livres_empruntés:
-            livre.afficher_détails()
+            livre.afficher_details()
     
     def sauvegarder_donnees(self):
         """
