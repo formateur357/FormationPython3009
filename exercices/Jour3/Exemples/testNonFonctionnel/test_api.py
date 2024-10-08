@@ -6,9 +6,17 @@ from api import get_data
 def test_get_data_succes(mock_get):
     mock_get.return_value.status_code = 200
     mock_get.return_value.json.return_value = {"key": "value"}
-    
+
     data = get_data("http://exemple.com")
     assert data == {'key': 'value'}
+
+@patch("api.requests.get")
+def test_get_data_failure(mock_get):
+    # Configurer le mock pour renvoyer une réponse avec statut 404
+    mock_get.return_value.status_code = 404
+
+    data = get_data("http://example.com")
+    assert data is None
 
 
 # class TestAPI(unittest.TestCase):
