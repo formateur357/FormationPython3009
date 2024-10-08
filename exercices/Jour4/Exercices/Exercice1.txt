@@ -51,7 +51,7 @@ Vous allez :
 
 6. Extension de l'application :
 
-- Interface utilisateur : Transformez le script en une application web en utilisant Flask, où l'utilisateur peut entrer un mot-clé, et les visualisations sont affichées sur une page web.
+-(A ne pas faire) Interface utilisateur : Transformez le script en une application web en utilisant Flask, où l'utilisateur peut entrer un mot-clé, et les visualisations sont affichées sur une page web.
 - Gestion des erreurs : Implémentez une gestion des exceptions pour gérer les erreurs potentielles lors des requêtes (par exemple, problèmes de connexion, données manquantes).
 - Optimisation des performances : Si le volume de données est important, envisagez de stocker les données localement ou d'utiliser des techniques de mise en cache.
 
