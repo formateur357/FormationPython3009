@@ -1,0 +1,75 @@
+Exercice : Analyse des publications scientifiques avec l'API OpenAlex
+
+Description :
+
+L'objectif de cet exercice est de créer une application Python qui interagit avec l'API OpenAlex pour extraire des données sur les publications scientifiques liées à un domaine de recherche spécifique. 
+
+Vous allez :
+
+- Rechercher des publications en utilisant des critères précis (par exemple, un mot-clé, un auteur, une institution).
+- Extraire et traiter les données pour obtenir des informations telles que le nombre de publications par année, les principaux auteurs, les revues les plus citées, etc.
+- Visualiser les données sous forme de graphiques pour faciliter l'analyse.
+
+Étapes à suivre :
+
+1. Comprendre l'API OpenAlex :
+
+- Documentation : Familiarisez-vous avec la documentation de l'API OpenAlex, en particulier les endpoints qui vous seront utiles, tels que /works, /authors, /venues, etc.
+- Authentification : Notez que l'API OpenAlex est accessible sans authentification, mais il est recommandé d'inclure votre adresse e-mail dans les requêtes pour identifier le trafic.
+
+2. Configurer votre environnement Python :
+
+- Créez un nouvel environnement virtuel pour le projet.
+
+. Installez les bibliothèques nécessaires :
+
+  - requests pour effectuer les requêtes HTTP.
+  - pandas pour le traitement des données.
+  - matplotlib ou seaborn pour la visualisation.
+
+3. Élaborer le script Python pour interagir avec l'API :
+
+- Requête initiale : Écrivez une fonction pour effectuer une requête à l'endpoint /works en utilisant un mot-clé spécifique.
+- Pagination : Implémentez un mécanisme pour récupérer plusieurs pages de résultats si nécessaire.
+
+4. Traitement des données :
+
+. Extraction des informations clés : Pour chaque publication, extrayez les données suivantes.
+
+  - Titre
+  - Date de publication
+  - Auteurs
+  - Journal (venue)
+  - Nombre de citations
+  - Champs de recherche (fields of study)
+
+5. Analyse et visualisation des données :
+
+- Nombre de publications par année.
+- Top 10 des auteurs les plus prolifiques.
+- Répartition des publications par champs de recherche.
+
+6. Extension de l'application :
+
+- Interface utilisateur : Transformez le script en une application web en utilisant Flask, où l'utilisateur peut entrer un mot-clé, et les visualisations sont affichées sur une page web.
+- Gestion des erreurs : Implémentez une gestion des exceptions pour gérer les erreurs potentielles lors des requêtes (par exemple, problèmes de connexion, données manquantes).
+- Optimisation des performances : Si le volume de données est important, envisagez de stocker les données localement ou d'utiliser des techniques de mise en cache.
+
+------------------------------------------------------------------------------
+Considérations supplémentaires :
+
+- Respecter les limites de l'API : Bien que l'API OpenAlex soit ouverte, il est important de ne pas surcharger le service avec un grand nombre de requêtes en peu de temps.
+- Ajouter des commentaires et de la documentation : Pour faciliter la compréhension et la maintenance du code, ajoutez des commentaires explicatifs.
+- Sécurité : Même si l'API ne nécessite pas d'authentification, veillez à ne pas exposer d'informations sensibles (par exemple, votre adresse e-mail) si vous partagez le code.
+
+-----------------------------------------------------------------------------
+
+Approfondissement :
+
+- Filtrage avancé : Utilisez les filtres avancés de l'API OpenAlex pour affiner les résultats, comme filtrer par année de publication, par langue, par type de document, etc.
+
+- Analyse des citations : Étudiez le réseau de citations entre les publications pour identifier les articles les plus influents.
+
+- Traitement de grandes quantités de données : Si vous récupérez un grand nombre de publications, envisagez d'utiliser une base de données comme SQLite ou MongoDB pour stocker et interroger les données efficacement.
+
+- Automatisation : Mettez en place des scripts pour effectuer des analyses périodiques ou pour surveiller les tendances dans un domaine de recherche.
