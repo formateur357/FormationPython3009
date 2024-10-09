@@ -1,17 +1,50 @@
-import requests
 import json
 import ast
 from flask import Flask, render_template, request, redirect, url_for
+from flask_wtf.csrf import CSRFProtect
+from flask_jwt_extended import JWTManager
+from flask_talisman import Talisman
+
+"""
+Gestion des autorisations et des accès
+Assurez-vous de bien gérer les permissions d’accès aux différentes parties de votre application. Utilisez des rôles et des niveaux d’autorisation pour limiter les accès aux fonctionnalités sensibles.
+Exemple avec Flask-Principal ou Flask-User pour la gestion des rôles.
+"""
 
 from openAlexApi import *
 
 app = Flask(__name__)
 
+app.config["SESSION_COOKIE_SECURE"] = True  # Seulement accessible via HTTPS
+app.config["SESSION_COOKIE_HTTPONLY"] = True  # Non accessible via JavaScript
+app.config["JWT_SECRET_KEY"] = "votre_cle_secrete"
+app.config["DEBUG"] = False
+app.config["TESTING"] = False
+
+Talisman(app)
+csrf = CSRFProtect(app)
+jwt = JWTManager(app)
+
+
+"""
+from flask_limiter import Limiter
+limiter = Limiter(app, key_func=get_remote_address)
+
+@app.route("/endpoint")
+@limiter.limit("5 per minute")  # Limite de 5 requêtes par minute
+def endpoint():
+    return "Sécurisé"
+"""
+
+@app.before_request
+def redirect_http_to_https():
+  if request.headers.get('X-Forwarded-Proto', 'http') == 'http':
+    return redirect(request.url.replace('http://', 'https://'))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if requests.method == "POST":
-        keyword = requests.form["keyword"].strip()
+    if request.method == "POST":
+        keyword = request.form["keyword"].strip()
         if not keyword:
             error = "Veuillez entrer un mot-clé."
             return render_template("index.html", error=error)
